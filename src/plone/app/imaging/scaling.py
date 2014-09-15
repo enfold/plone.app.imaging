@@ -144,6 +144,10 @@ class ImageScaling(BrowserView):
         if info is not None:
             return self.make(info).__of__(self.context)
 
+    def getResponsiveScales(self, scalename):
+        results = ['responsive-low', 'responsive-high']
+        return results
+
     def tag(self, fieldname=None, scale=None, height=None, width=None,
             css_class=None, direction='keep', **args):
         """
@@ -161,6 +165,26 @@ class ImageScaling(BrowserView):
         will accept a 'css_class' argument that will be converted to
         'class' in the output tag to work around this.
         """
+
+        if scale == "responsive":
+            img_tag = """
+                <img sizes="(min-width: 40em) 80vw, 100vw" srcset="%s">
+            """
+            available = self.getAvailableSizes(fieldname)
+            if not scale in available:
+                return None
+
+            url = self.context.absolute_url()
+            additional_scales = self.getResponsiveScales(scale)
+            srcset = []
+
+            additional_scales.append(scale)
+            for responsive_scale in additional_scales:
+                width, height = available[responsive_scale]
+                src = '%s/image_%s' % (url, responsive_scale)
+                srcset.append((src, width))
+
+            return img_tag % ', '.join(['%s %sw'%(k, v) for (k, v) in srcset])
 
         if scale is not None:
             available = self.getAvailableSizes(fieldname)

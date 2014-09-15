@@ -9,7 +9,7 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 from plone.app.imaging.interfaces import IBaseObject
 from plone.app.imaging.interfaces import IImageScaleHandler
 from plone.app.imaging.scale import ImageScale
-from plone.protect.interfaces import IDisableCSRFProtection
+#from plone.protect.interfaces import IDisableCSRFProtection
 from zope.interface import alsoProvides
 from zope.globalrequest import getRequest
 
@@ -65,8 +65,8 @@ class DefaultImageScaleHandler(object):
             from the field or optionally given data """
         # disable CRSF on scale generation
         req = getRequest()
-        if req:
-            alsoProvides(req, IDisableCSRFProtection)
+        #if req:
+            #alsoProvides(req, IDisableCSRFProtection)
         field = self.context
         if HAS_PIL and width and height:
             if data is None:

@@ -168,11 +168,11 @@ class ImageScaling(BrowserView):
         will accept a 'css_class' argument that will be converted to
         'class' in the output tag to work around this.
         """
-        responsive_sizes = ['responsive', 'badge']
+        responsive_sizes = ['responsive', 'badge', 'carousel']
 
         if scale in responsive_sizes:
             img_tag = """
-                <img sizes="100vw" srcset="%s">
+                <img sizes="30vw" class="%s" srcset="%s">
             """
             available = self.getAvailableSizes(fieldname)
             if not scale in available:
@@ -188,7 +188,13 @@ class ImageScaling(BrowserView):
                 src = '%s/image_%s' % (url, responsive_scale)
                 srcset.append((src, width))
 
-            return img_tag % ', '.join(['%s %sw'%(k, v) for (k, v) in srcset])
+            if css_class:
+                css_class += " responsive-img"
+            else:
+                css_class = "responsive-img"
+
+            return img_tag % (css_class,
+                              ', '.join(['%s %sw'%(k, v) for (k, v) in srcset]))
 
         if scale is not None:
             available = self.getAvailableSizes(fieldname)

@@ -169,7 +169,7 @@ class ImageScaling(BrowserView):
         will accept a 'css_class' argument that will be converted to
         'class' in the output tag to work around this.
         """
-        responsive_sizes = ['responsive', 'badge', 'carousel']
+        responsive_sizes = ['spotlight', 'badge', 'carousel', 'flag']
 
         if scale in responsive_sizes:
             img_tag = """

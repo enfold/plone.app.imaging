@@ -189,7 +189,7 @@ class ImageScaling(BrowserView):
                 src = '%s/image_%s' % (url, responsive_scale)
                 srcset.append((src, width))
 
-            if self.context.modified() > DateTime("2014/09/01"):
+            if self.context.modified() > DateTime("2014/11/06"):
                 class_to_add = "responsive-img"
             else:
                 class_to_add = "legacy-img"

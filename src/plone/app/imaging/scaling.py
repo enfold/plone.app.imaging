@@ -169,7 +169,14 @@ class ImageScaling(BrowserView):
         will accept a 'css_class' argument that will be converted to
         'class' in the output tag to work around this.
         """
-        responsive_sizes = ['spotlight', 'badge', 'carousel', 'flag']
+        responsive_sizes = [
+            'pub_view',
+            'pub_portlet',
+            'spotlight',
+            'flag',
+            'badge',
+            'carousel'
+        ]
 
         if scale in responsive_sizes:
             img_tag = """
@@ -189,7 +196,7 @@ class ImageScaling(BrowserView):
                 src = '%s/image_%s' % (url, responsive_scale)
                 srcset.append((src, width))
 
-            if self.context.modified() > DateTime("2014/11/06"):
+            if self.context.modified() > DateTime("2014/11/01"):
                 class_to_add = "responsive-img"
             else:
                 class_to_add = "legacy-img"

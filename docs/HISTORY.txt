@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.3 (unreleased)
-------------------
+1.1.3-enfold (2014-11-14)
+-------------------------
 
 - 1.1.2 was bad release, releasing again
   [frapell]

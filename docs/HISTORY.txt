@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.1.4-enfold (unreleased)
+-------------------------
+
+- Nothing changed yet.
+
+
 1.1.3-enfold (2014-11-14)
 -------------------------
 

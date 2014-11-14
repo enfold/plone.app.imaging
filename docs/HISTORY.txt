@@ -4,7 +4,8 @@ Changelog
 1.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- 1.1.2 was bad release, releasing again
+  [frapell]
 
 
 1.1.2-enfold (2014-11-14)

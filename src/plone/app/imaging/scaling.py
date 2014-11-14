@@ -1,4 +1,5 @@
 from Acquisition import aq_base
+from DateTime import DateTime
 from logging import getLogger
 from logging import exception
 from OFS.Image import Pdata
@@ -168,7 +169,14 @@ class ImageScaling(BrowserView):
         will accept a 'css_class' argument that will be converted to
         'class' in the output tag to work around this.
         """
-        responsive_sizes = ['responsive', 'badge', 'carousel']
+        responsive_sizes = [
+            'pub_view',
+            'pub_portlet',
+            'spotlight',
+            'flag',
+            'badge',
+            'carousel'
+        ]
 
         if scale in responsive_sizes:
             img_tag = """
@@ -188,10 +196,15 @@ class ImageScaling(BrowserView):
                 src = '%s/image_%s' % (url, responsive_scale)
                 srcset.append((src, width))
 
-            if css_class:
-                css_class += " responsive-img"
+            if self.context.modified() > DateTime("2014/11/01"):
+                class_to_add = "responsive-img"
             else:
-                css_class = "responsive-img"
+                class_to_add = "legacy-img"
+
+            if css_class:
+                css_class = "%s %s" % class_to_add
+            else:
+                css_class = class_to_add
 
             return img_tag % (css_class,
                               ', '.join(['%s %sw'%(k, v) for (k, v) in srcset]))

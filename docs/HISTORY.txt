@@ -7,6 +7,9 @@ Changelog
 - portet tests to plone.app.testing
   [tomgross]
 
+- Add responsive scales support for use with Picturefill
+  [frapell]
+
 
 1.1.1 (2014-04-13)
 ------------------

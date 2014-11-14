@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.2 (unreleased)
-------------------
+1.1.2-enfold (2014-11-14)
+-------------------------
 
 - portet tests to plone.app.testing
   [tomgross]

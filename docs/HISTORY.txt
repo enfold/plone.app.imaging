@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.4-enfold (unreleased)
+1.1.4-enfold (2014-11-14)
 -------------------------
 
 - Nothing changed yet.

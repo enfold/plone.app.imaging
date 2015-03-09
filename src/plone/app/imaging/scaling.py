@@ -205,10 +205,14 @@ class ImageScaling(BrowserView):
                 css_class = "%s %s" % class_to_add
             else:
                 css_class = class_to_add
+
+            img_title = self.context.Title() + ' Image'
+            alt = args.get('alt', img_title)
+
             return img_tag % (
                 css_class,
                 ', '.join(['%s %sw'%(k, v) for (k, v) in srcset]),
-                args.get('alt', u'This is alt by default'))
+                alt)
 
         if scale is not None:
             available = self.getAvailableSizes(fieldname)

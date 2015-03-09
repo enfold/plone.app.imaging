@@ -180,7 +180,7 @@ class ImageScaling(BrowserView):
 
         if scale in responsive_sizes:
             img_tag = """
-                <img sizes="30vw" class="%s" srcset="%s">
+                <img sizes="30vw" class="%s" srcset="%s" alt="%s">
             """
             available = self.getAvailableSizes(fieldname)
             if not scale in available:
@@ -205,9 +205,10 @@ class ImageScaling(BrowserView):
                 css_class = "%s %s" % class_to_add
             else:
                 css_class = class_to_add
-
-            return img_tag % (css_class,
-                              ', '.join(['%s %sw'%(k, v) for (k, v) in srcset]))
+            return img_tag % (
+                css_class,
+                ', '.join(['%s %sw'%(k, v) for (k, v) in srcset]),
+                args.get('alt', u'This is alt by default'))
 
         if scale is not None:
             available = self.getAvailableSizes(fieldname)

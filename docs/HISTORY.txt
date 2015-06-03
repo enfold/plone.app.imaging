@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.3-enfold1 (unreleased)
---------------------------
+1.1.3+enfold (2015-06-03)
+-------------------------
 
 - Generate ALT tag appending 'Image' to title
   [frapell]

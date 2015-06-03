@@ -6,7 +6,7 @@ readme = open("README.rst").read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
 setup(name = name,
-      version = "1.1.3.dev0",
+      version='1.1.3+enfold',
       description = 'User-configurable, blob-aware image scaling for Plone.',
       long_description = readme[readme.find('\n\n'):] + '\n' + history,
       classifiers=[

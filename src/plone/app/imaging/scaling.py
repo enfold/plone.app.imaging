@@ -4,6 +4,7 @@ from logging import getLogger
 from logging import exception
 from OFS.Image import Pdata
 from plone.app.imaging.interfaces import (
+    IDoNotApplyResponsiveScales,
     IImageScaling,
     IImageScaleFactory,
     IImagingSchema,
@@ -178,7 +179,7 @@ class ImageScaling(BrowserView):
             'carousel'
         ]
 
-        if scale in responsive_sizes:
+        if scale in responsive_sizes and not IDoNotApplyResponsiveScales.providedBy(self.request):
             img_tag = """
                 <img sizes="30vw" class="%s" srcset="%s" alt="%s">
             """

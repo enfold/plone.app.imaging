@@ -6,6 +6,12 @@ from zope.schema import List, TextLine, Int
 _ = MessageFactory('plone')
 
 
+class IDoNotApplyResponsiveScales(Interface):
+    """
+    Marker interface for the request to avoid transforming responsive scales
+    """
+
+
 class IImagingSchema(Interface):
     """ schema for configlet form """
 

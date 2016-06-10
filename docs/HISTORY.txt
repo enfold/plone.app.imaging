@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.3 (unreleased)
-------------------
+1.1.3+enfold2 (2016-06-10)
+--------------------------
 
 - #880653: Add marker interface to use in case responsive scales should not be
   computed for this request
